@@ -23,4 +23,3 @@ Things you may want to cover:
 
 * ...
 
-* mac接続テスト
