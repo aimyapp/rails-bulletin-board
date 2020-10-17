@@ -17,6 +17,8 @@ class BoardsController < ApplicationController
   
     def create
       board = Board.create(board_params)
+      # 新規作成時に一度だけ作成完了のメッセージを表示
+      flash[:notice] = "「#{board.title}」の掲示板を作成しました"
       redirect_to board
     end
   
@@ -34,8 +36,8 @@ class BoardsController < ApplicationController
 
     def destroy
       @board.delete
-
-      redirect_to boards_path
+      # 掲示板削除時に一度だけ削除完了のメッセージを表示(redirectの引数に渡している)
+      redirect_to boards_path, flash: { notice: "「#{@board.title}」の掲示板が削除されました"}
     end
 
     private
