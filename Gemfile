@@ -35,6 +35,8 @@ gem 'mini_racer'
 # ページネーション、build後kaminariの設定ファイル生成コマンド:docker-compose exec web bundle exec rails g kaminari:config
 # kaminariのビューファイル生成コマンド:docker-compose exec web bundle exec rails g kaminari:views bootstrap4
 gem 'kaminari'
+# バリデーションエラーのメッセージ日本語化
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -9,17 +9,24 @@ class BoardsController < ApplicationController
     end
   
     def new
-      @board = Board.new
+      @board = Board.new(flash[:board])
         # デバッグ開始 dokcer attach webコンテナ(docker-compose psのweb)
         # デバッグ終了 exit → Ctrl + C + Q
         # binding.pry 
     end
   
     def create
-      board = Board.create(board_params)
-      # 新規作成時に一度だけ作成完了のメッセージを表示
-      flash[:notice] = "「#{board.title}」の掲示板を作成しました"
-      redirect_to board
+      board = Board.new(board_params)
+      if board.save
+        # 新規作成時に一度だけ作成完了のメッセージを表示
+        flash[:notice] = "「#{board.title}」の掲示板を作成しました"
+        redirect_to board
+      else
+         redirect_to new_board_path, flash: {
+           board: board,
+           error_messages: board.errors.full_messages
+         }
+      end
     end
   
     def show
