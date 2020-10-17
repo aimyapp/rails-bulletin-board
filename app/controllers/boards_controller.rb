@@ -3,7 +3,9 @@ class BoardsController < ApplicationController
     before_action :set_target_board, only: %i[show edit update destroy]
 
     def index
-        @boards = Board.all
+       # pageメソッドを呼ぶことで引数に指定したページに表示するデータを取得
+       # デフォルトは1ページ25件 kaminari_config.rb => config.default_per_page = 25
+       @boards = Board.page(params[:page])
     end
   
     def new

@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# デフォルトで用意されているRailsの環境
+# test: テスト実行用の環境 development: 開発環境用 production: 本番環境用 
+# 実行コマンド: docker-compose exec web bundle exec rake db:seed
+if Rails.env = 'development'
+    (1..50).each do |i|
+        Board.create(name: "ユーザ#{i}", title: "タイトル#{i}", body: "本文#{i}")
+    end
+end
