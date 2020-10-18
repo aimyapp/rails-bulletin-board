@@ -11,6 +11,7 @@
 #
 # Boardのバリデーションクラス 
   class Board < ApplicationRecord
+    has_many :comments
     # presence: not null 制約
     validates :name, presence: true, length: { maximum: 10 }
     validates :title, presence: true, length: { maximum: 30 }
