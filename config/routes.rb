@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  #get 'comments/create'
+
+  #get 'comments/destroy'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get '/', to: 'boards#index'
   # get 'boards', to: 'boards#index'
@@ -8,4 +12,5 @@ Rails.application.routes.draw do
   # http://192.168.99.100:3000/rails/info/routes
   #resources :boards, only: [:index, :new, :create, :show, :edit, :update,delete]
   resources :boards
+  resources :boards, only: [:create, :delete]
 end
