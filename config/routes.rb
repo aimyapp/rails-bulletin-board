@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # post 'boards', to: 'boards#create'
   # get 'boards/:id', to: 'boards#show'
   # http://192.168.99.100:3000/rails/info/routes
-  #resources :boards, only: [:index, :new, :create, :show, :edit, :update,delete]
+  #resources :boards, only: [:index, :new, :create, :show, :edit, :update, :delete]
   resources :boards
-  resources :boards, only: [:create, :delete]
+  resources :comments, only: %i[create destroy]
 end

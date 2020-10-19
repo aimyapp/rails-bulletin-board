@@ -9,5 +9,12 @@
   <div class="alert alert-primary"><%= flash[:notice] %></div>
 <% end %>
 <%= render partial: 'board', object: @board %>
-<%= render partial: 'comment_form', locals: { comment: @comment } %>
+<div class="p-comment__list">
+  <div class="p-comment__listTitle">コメント</div>
+  <%# 特定のモデルのオブジェクトのリストをrenderの引数に渡すと自動的にモデル名のビューがオブジェクト数表示 %>
+  <%# コメント数分_comment.html.erbが表示 %>
+  <%= render @board.comments %>
+</div>
+<%# commetns配下のパーシャルの指定方法 comments/パーシャル名(_無し) %>
+<%= render partial: 'comments/form', locals: { comment: @comment } %>
  
