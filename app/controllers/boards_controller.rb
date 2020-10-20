@@ -43,7 +43,7 @@ class BoardsController < ApplicationController
     end
 
     def destroy
-      @board.delete
+      @board.destroy
       # 掲示板削除時に一度だけ削除完了のメッセージを表示(redirectの引数に渡している)
       redirect_to boards_path, flash: { notice: "「#{@board.title}」の掲示板が削除されました"}
     end
